@@ -97,6 +97,8 @@ void CBMP::loadHeader( std::ifstream& is ) {
     }
 }
 
+// =========================================================================================================
+
 const char * badStart::what() const noexcept {
     return "File doesn't begin in the lower left corner!";
 }

@@ -68,7 +68,7 @@ class CBMP : public CAbstractFormat {
 //=====================================================================================================================
 
 /**
- * exception thrown when the file doesn't start in lower left corner
+ * exception thrown when no files loaded yet
  */
 class badStart : public std::exception {
     public:

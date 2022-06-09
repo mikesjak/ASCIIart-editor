@@ -39,3 +39,11 @@ private:
          */
         static std::map < int, std::shared_ptr< CAbstractEffect > > effects;
 };
+
+/**
+ * exception thrown when the file doesn't start in lower left corner
+ */
+class noGivenFiles : public std::exception {
+    public:
+        const  char *  what() const noexcept;
+};

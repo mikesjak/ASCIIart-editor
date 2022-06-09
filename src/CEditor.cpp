@@ -27,6 +27,7 @@ int CEditor::chooseEffect() {
 void CEditor::editorMenu( std::vector<std::shared_ptr<CAbstractFormat>>& files, std::map< int, char >& ascii_signs ) {
     std::system("clear");
     std::vector<std::shared_ptr<CAbstractFormat>> filesToModify;
+    if ( files.empty() ) throw noGivenFiles();
 
     // Effect choosing
     int chosenEffect = chooseEffect();
@@ -93,4 +94,8 @@ void CEditor::editorMenu( std::vector<std::shared_ptr<CAbstractFormat>>& files, 
         for ( auto&file : filesToModify )
             file->print(ascii_signs);
     }
+}
+
+const char * noGivenFiles::what() const noexcept {
+    return "No files given!";
 }
