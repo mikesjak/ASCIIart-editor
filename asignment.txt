@@ -1,0 +1,59 @@
+ASCII art
+
+Váš program:
+
+z jednoho až n obrázků běžného formátu (BMP/SVG/RAW/TGA, ...) načte data a ty validně zobrazí v ASCII (odstíny šedi)
+ze souboru načte definovaný ASCII přechod
+umožňuje alespoň tři jednoduché operace (zesvětlení/ztmavení obrázku, vymazání, konvoluce, negativ, ...)
+umožnuje "spuštění" animace v případě více načtených obrázků a triviální editaci animace na útovní framů (např. mazání framů, seřazení za sebou, ...)
+Program bude umět pracovat s minimálně jedním obrázkovým formátem.
+
+Program bude mít jednoduché možnosti přehrávání animace (zastavit, spustit, zobrazit konkrétní frame, ...).
+
+Kde lze využít polymorfismus? (doporučené)
+
+Nástroje pro manipulaci a jejich efekty, sady znaků, ...
+Formáty vstupu: BMP, SVG, RAW, ...
+Různé styly ASCII vykreslení
+Přehrávač: obrázek (jen zobrazí), sekvence (přehraje více obrázků)
+Uživatelské rozhraní: konzole, ncurses, SDL, OpenGL (různé varianty), ...
+
+
+                                              _.oo.
+                      _.u[[/;:,.         .odMMMMMM'
+                   .o888UU[[[/;:-.  .o@P^    MMM^
+                  oN88888UU[[[/;::-.        dP^
+                 dNMMNN888UU[[[/;:--.   .o@P^
+               ,MMMMMMN888UU[[/;::-. o@^
+                NNMMMNN888UU[[[/~.o@P^
+                888888888UU[[[/o@^-..
+               oI8888UU[[[/o@P^:--..
+            .@^  YUU[[[/o@^;::---..
+          oMP     ^/o@P^;:::---..
+       .dMMM    .o@^ ^;::---...
+      dMMMMMMM@^`       `^^^^
+     YMMMUP^
+      ^^
+
+
+Specifikace:
+ - program umí načíst nekomprimované BMP a TGA soubory jak ze složky, tak přímo jeden soubor
+ - při načtení se soubory zmenší tak, aby šli na terminálu 1920x1080 vidět celé.
+    - pokud je velikost terminálu jiná, lze v třída CAbstractFile změnit komprimovací konstanty.
+ - po prvotním načtení lze načíst další soubory. Již načtené soubory lze upravit a nebo z nich vytvořit animaci.
+ - program umí zesvětlit, ztmavit otočit na 4 různé způsoby a znegovat.
+ - počet snímků za sekundu lze změnit ve třídě CPlayer změněním konstanty PPS.
+
+ Využití polymorfismu:
+ - Formáty souborů
+    - virtuální třída má CAbstractFormat má několik metod, které sdílí se všemi potomky, ale i několik pure virtual metod jako například load
+ - Efekty
+    - vedlejší polymorfismus umožňují efekty
+    - virtuální třída CAbstractEffect má pouze jednu metodu, kterou sdílí s potomky, má ale opět několik pure virtual metod, které potomci musí mít naimplemetované.
+
+Další třídy:
+- CAplication - hlavní třída reprezentující celou aplikaci
+- CKeyHandler - třída umožňující identifikovat zmáčknutí klávesy
+- CPlayer - třída reprezentující přehrávač animací
+- CEditor - třída reprezentující editor souborů
+- CLoader - třida řešící veškeré načítání souborů

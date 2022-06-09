@@ -6,6 +6,13 @@
 ## About
 - Second semester final project for BI-PA2
 - ASCIIart editor currently working with BMP and TGA files
+- currently support 3 types of effects
+    - Lightening, darkening
+    - Rotating, flipping
+    - Negating
+- program also provides animation creating such as this doggo
+
+<img align="center" width="500px" src="examples/dogo.gif" /><br>
 
 ## How it works
 Go to project folder and type
