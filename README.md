@@ -1,5 +1,4 @@
 # ASCIIart-editor
-Final project for Programming and Algorithmics 2 course 
 
 ### Final project for _Programming and Algorithmics 2_ course <br/>
 ## [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
